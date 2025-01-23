@@ -148,6 +148,74 @@ We will perform three different types of data augmentation:
 
 The training and validation accuracy are plotted as a function of the number of epochs for all three types of data augmentation:
 
-<img src="./img/Data_augmentation_flip.png" alt="flip_image" title="test" width="400"/>
-<img src="./img/Data_augmentation_brightness.png" alt="brightness_image" title="hello" width="400"/>
-<img src="./img/Data_augmentation_combination.png" alt="flip_brightness_image" title="hello" width="400"/>
+<img src="./img/Data_augmentation_flip.png" alt="flip_image" width="400"/>
+
+_Figure 8: AlexNet with data augmentation (random horizontal flip) for LR: 0.01, MOMENTUM: 0.9, WEIGHT_DECAY: 5e-5, STEP_SIZE: 20_
+
+<img src="./img/Data_augmentation_brightness.png" alt="brightness_image" width="400"/>
+
+_Figure 9: AlexNet with data augmentation (image brightness) for LR: 0.01, MOMENTUM: 0.9, WEIGHT_DECAY: 5e-5, STEP_SIZE: 20_
+
+<img src="./img/Data_augmentation_combination.png" alt="flip_brightness_image" width="400"/>
+
+_Figure 10: AlexNet with data augmentation (random horizontal flip and image brightness) for LR: 0.01, MOMENTUM: 0.9, WEIGHT_DECAY: 5e-5, STEP_SIZE: 20_
+
+We notice that none of the data augmentation parameters that were considered were able to improve the model's performance.
+
+With a narrow decrease in the loss function when it comes to using a random horizontal flip, we do distinguish an increase
+time to train of the model with respect to the prebvious models that were used when no data augmentation was performed.
+
+**The final accuracy** that was obtained when using the testing dataset is equal to **83.51%.**
+
+### Beyond AlexNet (VGG-16 & ResNet-50)
+
+We now consider a change in the model architecture as a whole by swtiching from the AlexNet model to the VGG-16 and ResNet-50 models.\
+
+These model differ from AlexNet in the number of layers and the architecture of the model.\
+
+We will use the same approach as we did with AlexNet, by training the model using only its pretrained weights versions, as we aim to compare the performance of these models with respect to AlexNet.
+
+#### VGG-16
+
+In this section, we discuss the results of the VGG-16 model that was used, it is important to note that
+the learning rate of the VGG-16 model was changed from the previous models to be equal to 0.001, as fast study on the loss showed that that model
+performed better at this learning rate instead of the usual one used for AlexNet.
+
+The training and validation accuracy are plotted as a function of the number of epochs:
+
+![image8](./img/VGG_pretrained.png)
+
+_Figure 11: VGG-16 with pretrained weights for LR: 0.001, MOMENTUM: 0.9, WEIGHT_DECAY: 5e-5, STEP_SIZE: 20_
+
+It is wildly significant that the VGG-16 model outperforms the AlexNet model in terms of accuracy, as the additional layers in the deep network are able to extract more features from the images, which helps the model to learning process of the model.
+
+**The final accuracy** that was obtained when using the testing dataset is equal to **92.12%.**
+
+#### ResNet-50
+
+In this section, we discuss the results of the ResNet-50 model that was used.
+ResNet-50 was also pretrained on the ImageNet dataset and then fine-tuned on the Caltech-101 dataset.
+
+The training and validation accuracy are plotted as a function of the number of epochs:
+
+![image9](./img/ResNet_pretrained.png)
+
+_Figure 12: ResNet-50 with pretrained weights for LR: 0.01, MOMENTUM: 0.9, WEIGHT_DECAY: 5e-5, STEP_SIZE: 20_
+
+We can see that the ResNet-50 model outperforms the AlexNet model in terms of accuracy, as the residual connections in the deep network help to mitigate the vanishing gradient problem, while it gives similar results to the ones we have seen in the VGG-16 model.
+
+**The final accuracy** that was obtained when using the testing dataset is equal to **91.58%.**
+
+### Conclusion
+
+Recent machine learning models have significantly enhanced performance, achieving faster convergence during training and higher accuracy on test sets.
+
+### References
+
+[1] Dataset - [Caltech-101](http://www.vision.caltech.edu/Image_Datasets/Caltech101/)
+
+[2] J. Deng, W. Dong, R. Socher, L.-J. Li, K. Li and L. Fei-Fei, "ImageNet: A Large-Scale Hierarchical Image Database," 2009 IEEE Conference on Computer Vision and Pattern Recognition, Miami, FL, USA, 2009, pp. 248-255, doi: 10.1109/CVPR.2009.5206848. - [paper](https://ieeexplore.ieee.org/document/5206848)
+
+[3] Li Fei-Fei, R. Fergus and P. Perona, "Learning Generative Visual Models from Few Training Examples: An Incremental Bayesian Approach Tested on 101 Object Categories," 2004 Conference on Computer Vision and Pattern Recognition Workshop, Washington, DC, USA, 2004, pp. 178-178, doi: 10.1109/CVPR.2004.383. - [paper](http://www.vision.caltech.edu/feifeili/Fei-Fei_GMBV04.pdf)
+
+[4] Krizhevsky, Alex & Sutskever, Ilya & Hinton, Geoffrey. (2012). ImageNet Classification with Deep Convolutional Neural Networks. Neural Information Processing Systems. 25. 10.1145/3065386 - [paper](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
