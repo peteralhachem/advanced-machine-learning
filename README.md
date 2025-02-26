@@ -78,7 +78,7 @@ The results of the training are as follows:
 
 _Figure 5: Accuracy metric on the training without domain adaptation_
 
-![Loss with Domain Adaptation](./img/With_DA_loss.png)
+![Loss with Domain Adaptation](./img/Without_DA_loss.png)
 
 _Figure 6: Loss metric on the training without domain adaptation_
 
