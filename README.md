@@ -74,11 +74,11 @@ Using a pre-trained AlexNet model, we train the photo domain using cross-validat
 
 The results of the training are as follows:
 
-![Without Domain Adaptation](./img/without_DA.png)
+![Without Domain Adaptation](./img/Without_DA.png)
 
 _Figure 5: Accuracy metric on the training without domain adaptation_
 
-![Loss with Domain Adaptation](./img/Without_DA_loss.png)
+![Loss with Domain Adaptation](./img/Without_DA_Loss.png)
 
 _Figure 6: Loss metric on the training without domain adaptation_
 
