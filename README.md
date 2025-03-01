@@ -124,7 +124,7 @@ The results of the training are displayed by the two important metrics: **_accur
 
 _Figure 7: Accuracy metric on the training with domain adaptation_
 
-![Loss with Domain Adaptation](./img/With_DA_Loss.png)
+![Loss with Domain Adaptation](./img/With_DA_loss.png)
 
 _Figure 8: Loss metric on the training with domain adaptation_
 
